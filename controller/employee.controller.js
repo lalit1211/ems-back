@@ -133,11 +133,26 @@ module.exports.getEmployee= catchAsync(async(req,res, next)=>{
 // ``````````````````````` Get Employee by Id.............................
 module.exports.getEmployeeById = catchAsync(async(req, res, next)=>{
 	const{emp_id} = req.body
+	// const {emp_id}= req.params
+	_e(emp_id)
 
 	const emp = await Employee.findOne({emp_id})
 
 	res.status(200).json({
 		status: "success",
 		data: emp
+	})
+})
+
+// ``````````````````````` Delete Employee by ID.........................
+module.exports.deleteEmployeeById = catchAsync(async(req,res,next)=>{
+	const { emp_id } = req.body;
+	const _id= emp_id;
+	const emp = await Employee.deleteOne({emp_id})
+	const usee = await User.deleteOne({_id})
+
+	res.status(200).json({
+		status: "success",
+		message: "employee deleted"
 	})
 })

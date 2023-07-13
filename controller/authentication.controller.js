@@ -103,12 +103,12 @@ module.exports.login = catchAsync(
 		);
 
 		// token is save as a cookie and expire after 24 hours...........................
-		// res.cookie("authorization", token, {
-		// 	expires: new Date(Date.now() + 1000 * 60 * 60 * 24),
-		// 	httpOnly: true,
-		// 	secure: true
-		// 	// secure: process.env.NODE_ENV === "production",
-		// });
+		res.cookie("authorization", token, {
+			expires: new Date(Date.now() + 1000 * 60 * 60 * 24),
+			httpOnly: true,
+			secure: true
+			// secure: process.env.NODE_ENV === "production",
+		});
 
 		res.status(200).json({
 			status: "success",

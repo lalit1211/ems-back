@@ -5,6 +5,9 @@ const employeeRoute = express.Router();
 
 employeeRoute.route("/add_details").post(controller.addDetails);
 employeeRoute.route("/all_emp").get(controller.getEmployee);
-employeeRoute.route("/").get(controller.getEmployeeById)
+employeeRoute.route("/").post(controller.getEmployeeById)
+employeeRoute
+	.route("/deleteEmployee")
+	.post(controller.deleteEmployeeById);
 
 module.exports = employeeRoute;
