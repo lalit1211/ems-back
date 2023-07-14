@@ -156,3 +156,16 @@ module.exports.deleteEmployeeById = catchAsync(async(req,res,next)=>{
 		message: "employee deleted"
 	})
 })
+
+
+// ````````````````````````` Update Employee By Id.......................
+module.exports.updateEmployeeById = catchAsync(async(req,res,next)=>{
+	const {emp_id} = req.body;
+
+	const updatedEmployee= await Employee.findOneAndUpdate({emp_id},req.body, {new:true})
+
+	res.status(200).json({
+		message:"success",
+		data:updatedEmployee
+	})
+})

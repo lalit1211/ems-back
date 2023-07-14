@@ -9,5 +9,6 @@ employeeRoute.route("/").post(controller.getEmployeeById)
 employeeRoute
 	.route("/deleteEmployee")
 	.post(controller.deleteEmployeeById);
+    employeeRoute.route("/update_Employee").put(controller.updateEmployeeById)
 
 module.exports = employeeRoute;
